@@ -28,3 +28,11 @@ const emailElement = document.querySelector('.email');
       }, 300);
     }, 2000);
   });
+
+  window.addEventListener('resize', function() {
+    document.body.classList.add('resize-active');
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function(){
+        document.body.classList.remove('resize-active');
+    }, 200);
+});

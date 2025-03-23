@@ -17,10 +17,10 @@ html, body {
     font-weight: normal;
 }
 .container{
-    padding: 20px 20px;
-    height: 100vh;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Ensure at least viewport height */
 }
 
 .navbar {
@@ -78,31 +78,30 @@ html, body {
     font-size: 0.7em;
 }
 .projects{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    overflow-y: auto
+
 }
 .columns2{
-    flex: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 20px;
-    overflow: hidden;
-    margin-top: 20px;
 }
 .project {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
 }
-.project img {
+.projects .project img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    object-position: center top; /* Slightly offset upwards */
-    display: block;
+    object-fit: cover;
 }
 .project .text {
     position: absolute;
@@ -145,6 +144,7 @@ html, body {
     gap: 20px;              /* space between stacked images */
     padding: 20px 0;
     margin-top: 20px;
+    overflow-y: auto; /* Allows vertical scrolling if needed */
 }
 
 .image-container .image {
@@ -204,18 +204,9 @@ html, body {
     opacity: 1;
   }
 
+  /* Responsive adjustments */
   @media (max-width: 768px) {
-    /* Change the grid to a single column */
     .columns2 {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-    /* Allow vertical scrolling within the projects container */
-    .projects {
-      overflow-y: auto;
-    }
-    /* Optionally, if you want the whole page to scroll rather than a fixed-height container */
-    .container {
-      height: auto;
-    }
-  }
-  
+}
