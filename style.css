@@ -165,3 +165,40 @@ html, body {
     margin-top: 10px;
     font-size: 0.8em;
 }
+.links {
+    display: flex;
+    justify-content: center; /* center items horizontally */
+    align-items: center;     /* center items vertically */
+    gap: 40px;               /* space between the items */
+    height: 100vh;           /* full viewport height for vertical centering */
+    flex-wrap: wrap;         /* optional: wrap items on small screens */
+}
+.links a {
+    position: relative;
+    text-decoration: none;
+    color: #000; /* Your link color */
+    font-size: 0.8em;
+  }
+
+.links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust depending on your font */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor;
+    transition: width 0.3s ease-in-out;
+}
+.links a:hover::after {
+    width: 100%;
+}
+.email, .linkedin, .phone{
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.email {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+  }
