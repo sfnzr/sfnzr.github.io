@@ -164,6 +164,7 @@ html, body {
 .image-container .image p{
     margin-top: 10px;
     font-size: 0.8em;
+    text-align: justify;
 }
 .links {
     display: flex;
@@ -202,3 +203,19 @@ html, body {
     transition: opacity 0.3s ease;
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    /* Change the grid to a single column */
+    .columns2 {
+      grid-template-columns: 1fr;
+    }
+    /* Allow vertical scrolling within the projects container */
+    .projects {
+      overflow-y: auto;
+    }
+    /* Optionally, if you want the whole page to scroll rather than a fixed-height container */
+    .container {
+      height: auto;
+    }
+  }
+  
