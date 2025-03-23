@@ -1,0 +1,167 @@
+/* Reset default margins/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+html, body {
+    height: 100%;
+}
+* a {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+.container{
+    padding: 20px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name a {
+    font-size: 1.5em;
+    /* font-weight: 700; */
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #000; /* Your link color */
+    font-size: 0.8em;
+  }
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust depending on your font */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor;
+    transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+.description{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.column-12{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
+}
+.degree{
+    font-size: 0.8em;
+}
+.University{
+    font-size: 0.7em;
+}
+.projects{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+.columns2{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.project {
+    position: relative;
+    overflow: hidden;
+}
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center top; /* Slightly offset upwards */
+    display: block;
+}
+.project .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    /* font-weight: 700; */
+    padding: 10px;
+    z-index: 3;
+    opacity: 0; 
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    text-align: center;
+}
+
+.project::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7); /* White translucent overlay */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.project:hover::after,
+.project:hover .text {
+    opacity: 1; 
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* stack images vertically */
+    align-items: center;    /* center images horizontally */
+    gap: 20px;              /* space between stacked images */
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.image-container .image {
+    width: 80vw;            /* set image container width to 80% of viewport */
+    height: auto;           /* let height adjust naturally */
+}
+.image-container .image .text-box{
+    width: 85%;
+    margin: auto;
+}
+
+.image-container .image img {
+    width: 100%;            /* make image fill container width */
+    height: auto;           /* maintain aspect ratio */
+    display: block;
+}
+.image-container .image p{
+    margin-top: 10px;
+    font-size: 0.8em;
+}
